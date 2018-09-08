@@ -31,27 +31,27 @@ class ServiceProvider implements \DanielPfeil\ServiceProviderAuthenticator\Servi
     //todo make Datetime
     final public function getAuthenticationInstant(): string
     {
-        // TODO: Implement getAuthenticationInstant() method.
+        return $_SERVER[$this->getPrefix() . $this->shibPrefix . "Authentication-Instant"];
     }
 
     final public function getAuthenticationMethod(): string
     {
-        // TODO: Implement getAuthenticationMethod() method.
+        return $_SERVER[$this->getPrefix() . $this->shibPrefix . "Authentication-Method"];
     }
 
     final public function getAuthenticationContextClass(): string
     {
-        // TODO: Implement getAuthentcationContext() method.
+        return $_SERVER[$this->getPrefix() . $this->shibPrefix . "AuthnContext-Class"];
     }
 
     final public function getSessionIndex(): string
     {
-        // TODO: Implement getCookieName() method.
+        return $_SERVER[$this->getPrefix() . $this->shibPrefix . "Session-Index"];
     }
 
     final public function getCookieName(): string
     {
-        // TODO: Implement getCookieName() method.
+        return $_SERVER[$this->getPrefix() . $this->shibPrefix . "Cookie-Name"];
     }
 
     final public function getPrefix(): string
