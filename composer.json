@@ -11,12 +11,20 @@
     "shibboleth"
   ],
   "version": "0.0.1",
+  "repositories": [
+    {
+      "type": "vcs",
+      "url": "git@git.api-studio.de:pfeilda/serviceproviderAuthenticator.git"
+    }
+  ],
   "require": {
-    "daniel-pfeil/serviceproviderAuthenticator":"dev-master"
+    "php":"^7.1",
+    "daniel-pfeil/serviceproviderAuthenticator":"dev-develop"
   },
   "require-dev": {
     "squizlabs/php_codesniffer": "*",
-    "phpspec/phpspec": "^4.0"
+    "phpspec/phpspec": "^4.0",
+    "leanphp/phpspec-code-coverage":"^4.1"
   },
   "autoload": {
     "psr-4": {
