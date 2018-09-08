@@ -7,6 +7,6 @@ test:
   stage: build
   script:
     - vendor/bin/phpspec run --no-coverage --no-code-generation
-  artifacts:
-    paths:
-      - coverage
+#  artifacts:
+#    paths:
+#      - coverage
