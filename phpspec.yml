@@ -1,0 +1,12 @@
+suites:
+  default:
+    namespace: DanielPfeil\ServiceProviderApacheShib
+    psr4_prefix: DanielPfeil\ServiceProviderApacheShib
+    src_path: ./Classes
+    spec_path: ./
+    composer_suite_detection: true
+extensions:
+  LeanPHP\PhpSpec\CodeCoverage\CodeCoverageExtension:
+    lower_upper_bound: 0
+    whitelist:
+    - Classes
