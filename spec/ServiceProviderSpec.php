@@ -86,4 +86,8 @@ class ServiceProviderSpec extends ObjectBehavior
         $this->isSessionExisting()->shouldBeBoolean();
         $this->isSessionExisting()->shouldBeEqualTo(true);
     }
+
+    public function it_getField():void {
+        $this->getField("testKey")->shouldBeEqualTo("testValue");
+    }
 }

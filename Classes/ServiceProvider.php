@@ -3,7 +3,7 @@
 namespace DanielPfeil\ServiceProviderApacheShib;
 
 //todo maybe checks for if  the getter gets valid informations
-class ServiceProvider implements \DanielPfeil\ServiceProviderAuthenticator\ServiceProvider
+class ServiceProvider
 {
     private $prefix;
     private $shibPrefix = "Shib-";
@@ -60,6 +60,11 @@ class ServiceProvider implements \DanielPfeil\ServiceProviderAuthenticator\Servi
     }
 
     public function isSessionExisting():bool
+    {
+        // TODO: write logic here
+    }
+
+    public function getField($argument1)
     {
         // TODO: write logic here
     }
