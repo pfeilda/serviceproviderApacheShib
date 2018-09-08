@@ -59,4 +59,9 @@ class ServiceProvider implements \DanielPfeil\ServiceProviderAuthenticator\Servi
         return $this->prefix;
     }
 
+    public function isSessionExisting():bool
+    {
+        // TODO: write logic here
+    }
+
 }

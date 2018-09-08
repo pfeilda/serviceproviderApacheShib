@@ -81,4 +81,9 @@ class ServiceProviderSpec extends ObjectBehavior
         //todo difference between shouldBe and shouldBeEqualTo
         $this->getPrefix()->shouldBeEqualTo($this->_prefix);
     }
+
+    public function it_isSessionExisting():void{
+        $this->isSessionExisting()->shouldBeBoolean();
+        $this->isSessionExisting()->shouldBeEqualTo(true);
+    }
 }
