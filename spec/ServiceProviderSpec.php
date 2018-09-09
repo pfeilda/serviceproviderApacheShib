@@ -216,12 +216,56 @@ final class ServiceProviderSpec extends ObjectBehavior
         $this->isSessionExisting()->shouldBeEqualTo(false);
     }
 
+    final public function it_isSessionExisting_identityProvider_is_not_set(): void
+    {
+        $this->setEnvVariables();
+
+        unset($_SERVER[$this->getFullPrefixSpec("Identity-Provider")]);
+
+        $this->isSessionExisting()->shouldBeBoolean();
+        $this->isSessionExisting()->shouldBeEqualTo(false);
+    }
+
     final public function it_isSessionExisting_sessionId_and_sessionIndex_is_not_set(): void
     {
         $this->setEnvVariables();
 
         unset($_SERVER[$this->getFullPrefixSpec("Session-ID")]);
         unset($_SERVER[$this->getFullPrefixSpec("Session-Index")]);
+
+        $this->isSessionExisting()->shouldBeBoolean();
+        $this->isSessionExisting()->shouldBeEqualTo(false);
+    }
+
+    final public function it_isSessionExisting_sessionId_and_identityProvider_is_not_set(): void
+    {
+        $this->setEnvVariables();
+
+        unset($_SERVER[$this->getFullPrefixSpec("Session-ID")]);
+        unset($_SERVER[$this->getFullPrefixSpec("Identity-Provider")]);
+
+        $this->isSessionExisting()->shouldBeBoolean();
+        $this->isSessionExisting()->shouldBeEqualTo(false);
+    }
+
+    final public function it_isSessionExisting_sessionIndex_and_identityProvider_is_not_set(): void
+    {
+        $this->setEnvVariables();
+
+        unset($_SERVER[$this->getFullPrefixSpec("Session-Index")]);
+        unset($_SERVER[$this->getFullPrefixSpec("Identity-Provider")]);
+
+        $this->isSessionExisting()->shouldBeBoolean();
+        $this->isSessionExisting()->shouldBeEqualTo(false);
+    }
+
+    final public function it_isSessionExisting_sessionIndex_and_identityProvider_and_sessionId_is_not_set(): void
+    {
+        $this->setEnvVariables();
+
+        unset($_SERVER[$this->getFullPrefixSpec("Session-Index")]);
+        unset($_SERVER[$this->getFullPrefixSpec("Identity-Provider")]);
+        unset($_SERVER[$this->getFullPrefixSpec("Session-ID")]);
 
         $this->isSessionExisting()->shouldBeBoolean();
         $this->isSessionExisting()->shouldBeEqualTo(false);

@@ -80,7 +80,7 @@ final class ServiceProvider implements \DanielPfeil\ServiceProviderAuthenticator
 
     final public function isSessionExisting(): bool
     {
-        if ($this->getSessionIndex() != null && $this->getSessionId() != null) {
+        if ($this->getSessionIndex() != null && $this->getSessionId() != null && $this->getIdentityProvider() != null) {
             return true;
         }
         return false;
