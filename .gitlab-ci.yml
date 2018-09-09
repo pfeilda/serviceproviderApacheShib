@@ -1,5 +1,6 @@
 before_script:
-  - apk add --no-cache $PHPIZE_DEPS && pecl install xdebug-2.6.0 && docker-php-ext-enable xdebug
+  - apk add --no-cache $PHPIZE_DEPS && apk del php7.2 && apk add php7.1
+  - pecl install xdebug-2.6.0 && docker-php-ext-enable xdebug
   - git config --global url."https://gitlab+deploy-token-4:${ServiceAuthenticatorDeployToken}@git.api-studio.de/pfeilda/serviceproviderAuthenticator.git".insteadOf git@git.api-studio.de:pfeilda/serviceproviderAuthenticator.git
   - composer install -o
 
