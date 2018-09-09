@@ -6,7 +6,7 @@ before_script:
 test:
   stage: build
   script:
-    - vendor/bin/phpspec run --no-coverage --no-code-generation -n
+    - vendor/bin/phpspec run --no-code-generation -n
   artifacts:
     paths:
       - coverage
