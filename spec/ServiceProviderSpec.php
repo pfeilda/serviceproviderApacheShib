@@ -30,7 +30,7 @@ final class ServiceProviderSpec extends ObjectBehavior
     {
         $this->setEnvVariables();
 
-        unset($_SERVER[$this->getFullPrefix("Application-ID")]);
+        unset($_SERVER[$this->getFullPrefixSpec("Application-ID")]);
 
         $this->getApplicationID()->shouldBeNull();
     }
@@ -51,7 +51,7 @@ final class ServiceProviderSpec extends ObjectBehavior
     {
         $this->setEnvVariables();
 
-        unset($_SERVER[$this->getFullPrefix("Session-ID")]);
+        unset($_SERVER[$this->getFullPrefixSpec("Session-ID")]);
 
         $this->getSessionId()->shouldBeNull();
     }
@@ -72,7 +72,7 @@ final class ServiceProviderSpec extends ObjectBehavior
     {
         $this->setEnvVariables();
 
-        unset($_SERVER[$this->getFullPrefix("Identity-Provider")]);
+        unset($_SERVER[$this->getFullPrefixSpec("Identity-Provider")]);
 
         $this->getIdentityProvider()->shouldBeNull();
     }
@@ -93,7 +93,7 @@ final class ServiceProviderSpec extends ObjectBehavior
     {
         $this->setEnvVariables();
 
-        unset($_SERVER[$this->getFullPrefix("Authentication-Instant")]);
+        unset($_SERVER[$this->getFullPrefixSpec("Authentication-Instant")]);
 
         $this->getAuthenticationInstant()->shouldBeNull();
     }
@@ -169,7 +169,7 @@ final class ServiceProviderSpec extends ObjectBehavior
             ->shouldBeEqualTo("prefixedTestValue");
     }
 
-    final private function getFullPrefix(string $string): string
+    final private function getFullPrefixSpec(string $string): string
     {
         return $this->specPrefix . $this->specShibPrefix . $string;
     }
@@ -191,7 +191,7 @@ final class ServiceProviderSpec extends ObjectBehavior
         );
 
         foreach ($this->vars as $key => $var) {
-            $_SERVER[$this->getFullPrefix($key)] = $var;
+            $_SERVER[$this->getFullPrefixSpec($key)] = $var;
         }
 
         $_SERVER["testKey"] = "testValue";
