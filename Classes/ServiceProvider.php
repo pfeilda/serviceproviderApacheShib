@@ -46,24 +46,36 @@ final class ServiceProvider implements \DanielPfeil\ServiceProviderAuthenticator
         return null;
     }
 
-    final public function getAuthenticationMethod(): string
+    final public function getAuthenticationMethod(): ?string
     {
-        return $_SERVER[$this->getPrefix() . $this->shibPrefix . "Authentication-Method"];
+        if ($this->isExisting($this->getPrefix() . $this->shibPrefix . "Authentication-Method")) {
+            return $_SERVER[$this->getPrefix() . $this->shibPrefix . "Authentication-Method"];
+        }
+        return null;
     }
 
-    final public function getAuthenticationContextClass(): string
+    final public function getAuthenticationContextClass(): ?string
     {
-        return $_SERVER[$this->getPrefix() . $this->shibPrefix . "AuthnContext-Class"];
+        if ($this->isExisting($this->getPrefix() . $this->shibPrefix . "AuthnContext-Class")) {
+            return $_SERVER[$this->getPrefix() . $this->shibPrefix . "AuthnContext-Class"];
+        }
+        return null;
     }
 
-    final public function getSessionIndex(): string
+    final public function getSessionIndex(): ?string
     {
-        return $_SERVER[$this->getPrefix() . $this->shibPrefix . "Session-Index"];
+        if ($this->isExisting($this->getPrefix() . $this->shibPrefix . "Session-Index")) {
+            return $_SERVER[$this->getPrefix() . $this->shibPrefix . "Session-Index"];
+        }
+        return null;
     }
 
-    final public function getCookieName(): string
+    final public function getCookieName(): ?string
     {
-        return $_SERVER[$this->getPrefix() . $this->shibPrefix . "Cookie-Name"];
+        if ($this->isExisting($this->getPrefix() . $this->shibPrefix . "Cookie-Name")) {
+            return $_SERVER[$this->getPrefix() . $this->shibPrefix . "Cookie-Name"];
+        }
+        return null;
     }
 
     final public function isSessionExisting(): bool

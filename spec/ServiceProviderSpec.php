@@ -110,6 +110,20 @@ final class ServiceProviderSpec extends ObjectBehavior
         $this->getAuthenticationMethod()->shouldBeEqualTo($this->vars["Authentication-Method"]);
     }
 
+    final public function it_GetAuthenticationMethod_none_existing(): void
+    {
+        $this->setEnvVariables();
+
+        unset($_SERVER[$this->getFullPrefixSpec("Authentication-Method")]);
+
+        $this->getAuthenticationMethod()->shouldBeNull();
+    }
+
+    final public function it_GetAuthenticationMethod_nothing_is_set()
+    {
+        $this->getAuthenticationMethod()->shouldBeNull();
+    }
+
     final public function it_GetAuthenticationContextClass(): void
     {
         $this->setEnvVariables();
@@ -117,11 +131,40 @@ final class ServiceProviderSpec extends ObjectBehavior
         $this->getAuthenticationContextClass()->shouldBeEqualTo($this->vars["AuthnContext-Class"]);
     }
 
-    final public function it_GetSessionIndex(): void
+
+    final public function it_GetAuthenticationContextClass_none_existing(): void
+    {
+        $this->setEnvVariables();
+
+        unset($_SERVER[$this->getFullPrefixSpec("AuthnContext-Class")]);
+
+        $this->getAuthenticationContextClass()->shouldBeNull();
+    }
+
+    final public function it_GetAuthenticationContextClass_nothing_is_set()
+    {
+        $this->getAuthenticationContextClass()->shouldBeNull();
+    }
+
+    final public function it_getSessionIndex(): void
     {
         $this->setEnvVariables();
 
         $this->getSessionIndex()->shouldBeEqualTo($this->vars["Session-Index"]);
+    }
+
+    final public function it_getSessionIndex_none_existing(): void
+    {
+        $this->setEnvVariables();
+
+        unset($_SERVER[$this->getFullPrefixSpec("Session-Index")]);
+
+        $this->getSessionIndex()->shouldBeNull();
+    }
+
+    final public function it_getSessionIndex_nothing_is_set()
+    {
+        $this->getApplicationID()->shouldBeNull();
     }
 
     final public function it_GetCookieName(): void
@@ -131,12 +174,18 @@ final class ServiceProviderSpec extends ObjectBehavior
         $this->getCookieName()->shouldBeEqualTo($this->vars["Cookie-Name"]);
     }
 
-    final public function it_GetPrefix(): void
+    final public function it_GetCookieName_none_existing(): void
     {
         $this->setEnvVariables();
 
-        //todo difference between shouldBe and shouldBeEqualTo
-        $this->getPrefix()->shouldBeEqualTo($this->specPrefix);
+        unset($_SERVER[$this->getFullPrefixSpec("Cookie-Name")]);
+
+        $this->getCookieName()->shouldBeNull();
+    }
+
+    final public function it_GetCookieName_nothing_is_set()
+    {
+        $this->getCookieName()->shouldBeNull();
     }
 
     final public function it_isSessionExisting(): void
@@ -145,6 +194,51 @@ final class ServiceProviderSpec extends ObjectBehavior
 
         $this->isSessionExisting()->shouldBeBoolean();
         $this->isSessionExisting()->shouldBeEqualTo(true);
+    }
+
+    final public function it_isSessionExisting_sessionIndex_is_not_set(): void
+    {
+        $this->setEnvVariables();
+
+        unset($_SERVER[$this->getFullPrefixSpec("Session-Index")]);
+
+        $this->isSessionExisting()->shouldBeBoolean();
+        $this->isSessionExisting()->shouldBeEqualTo(false);
+    }
+
+    final public function it_isSessionExisting_sessionId_is_not_set(): void
+    {
+        $this->setEnvVariables();
+
+        unset($_SERVER[$this->getFullPrefixSpec("Session-ID")]);
+
+        $this->isSessionExisting()->shouldBeBoolean();
+        $this->isSessionExisting()->shouldBeEqualTo(false);
+    }
+
+    final public function it_isSessionExisting_sessionId_and_sessionIndex_is_not_set(): void
+    {
+        $this->setEnvVariables();
+
+        unset($_SERVER[$this->getFullPrefixSpec("Session-ID")]);
+        unset($_SERVER[$this->getFullPrefixSpec("Session-Index")]);
+
+        $this->isSessionExisting()->shouldBeBoolean();
+        $this->isSessionExisting()->shouldBeEqualTo(false);
+    }
+
+    final public function it_isSessionExisting_nothing_is_set(): void
+    {
+        $this->isSessionExisting()->shouldBeBoolean();
+        $this->isSessionExisting()->shouldBeEqualTo(false);
+    }
+
+    final public function it_GetPrefix(): void
+    {
+        $this->setEnvVariables();
+
+        //todo difference between shouldBe and shouldBeEqualTo
+        $this->getPrefix()->shouldBeEqualTo($this->specPrefix);
     }
 
     final public function it_getField(): void
