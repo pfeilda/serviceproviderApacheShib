@@ -7,5 +7,12 @@ suites:
     composer_suite_detection: true
 extensions:
   LeanPHP\PhpSpec\CodeCoverage\CodeCoverageExtension:
+    format: [
+        html,
+        clover
+      ]
     whitelist:
     - Classes
+    output:
+          clover: coverage/clover.xml
+          html: coverage/html
