@@ -89,7 +89,21 @@ final class ServiceProviderSpec extends ObjectBehavior
         $this->getAuthenticationInstant()->shouldBeEqualTo($this->vars["Authentication-Instant"]);
     }
 
-    public function it_GetAuthenticationMethod():void
+    final public function it_GetAuthenticationInstant_none_existing(): void
+    {
+        $this->setEnvVariables();
+
+        unset($_SERVER[$this->getFullPrefix("Authentication-Instant")]);
+
+        $this->getAuthenticationInstant()->shouldBeNull();
+    }
+
+    final public function it_GetAuthenticationInstant_nothing_is_set()
+    {
+        $this->getAuthenticationInstant()->shouldBeNull();
+    }
+
+    final public function it_GetAuthenticationMethod(): void
     {
         $this->setEnvVariables();
 

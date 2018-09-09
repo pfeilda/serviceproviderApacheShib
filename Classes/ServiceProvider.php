@@ -40,7 +40,10 @@ final class ServiceProvider implements \DanielPfeil\ServiceProviderAuthenticator
     //todo make Datetime
     final public function getAuthenticationInstant(): ?string
     {
-        return $_SERVER[$this->getPrefix() . $this->shibPrefix . "Authentication-Instant"];
+        if ($this->isExisting($this->getPrefix() . $this->shibPrefix . "Authentication-Instant")) {
+            return $_SERVER[$this->getPrefix() . $this->shibPrefix . "Authentication-Instant"];
+        }
+        return null;
     }
 
     final public function getAuthenticationMethod(): string
