@@ -31,7 +31,10 @@ final class ServiceProvider implements \DanielPfeil\ServiceProviderAuthenticator
 
     final public function getIdentityProvider(): ?string
     {
-        return $_SERVER[$this->getPrefix() . $this->shibPrefix . "Identity-Provider"];
+        if ($this->isExisting($this->getPrefix() . $this->shibPrefix . "Identity-Provider")) {
+            return $_SERVER[$this->getPrefix() . $this->shibPrefix . "Identity-Provider"];
+        }
+        return null;
     }
 
     //todo make Datetime
