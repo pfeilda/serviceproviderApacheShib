@@ -3,12 +3,12 @@
 namespace DanielPfeil\ServiceProviderApacheShib;
 
 //todo maybe checks for if  the getter gets valid informations
-class ServiceProvider implements \DanielPfeil\ServiceProviderAuthenticator\ServiceProvider
+final class ServiceProvider implements \DanielPfeil\ServiceProviderAuthenticator\ServiceProvider
 {
     private $prefix;
     private $shibPrefix = "Shib-";
 
-    public function __construct(string $prefix = null)
+    final public function __construct(string $prefix = null)
     {
         $this->prefix = $prefix;
     }
@@ -21,18 +21,18 @@ class ServiceProvider implements \DanielPfeil\ServiceProviderAuthenticator\Servi
         return null;
     }
 
-    final public function getSessionId(): string
+    final public function getSessionId(): ?string
     {
         return $_SERVER[$this->getPrefix() . $this->shibPrefix . "Session-ID"];
     }
 
-    final public function getIdentityProvider(): string
+    final public function getIdentityProvider(): ?string
     {
         return $_SERVER[$this->getPrefix() . $this->shibPrefix . "Identity-Provider"];
     }
 
     //todo make Datetime
-    final public function getAuthenticationInstant(): string
+    final public function getAuthenticationInstant(): ?string
     {
         return $_SERVER[$this->getPrefix() . $this->shibPrefix . "Authentication-Instant"];
     }
@@ -57,7 +57,7 @@ class ServiceProvider implements \DanielPfeil\ServiceProviderAuthenticator\Servi
         return $_SERVER[$this->getPrefix() . $this->shibPrefix . "Cookie-Name"];
     }
 
-    public function isSessionExisting():bool
+    final public function isSessionExisting(): bool
     {
         if ($this->getSessionIndex() != null) {
             return true;
@@ -66,12 +66,12 @@ class ServiceProvider implements \DanielPfeil\ServiceProviderAuthenticator\Servi
     }
 
     //Be carefull access on all $_SERVER fields
-    public function getField(string $fieldName):?string
+    final public function getField(string $fieldName): ?string
     {
         return $_SERVER[$fieldName];
     }
 
-    public function getPrefixedField(string $fieldName, bool $useShortPrefix = true):?string
+    final public function getPrefixedField(string $fieldName, bool $useShortPrefix = true): ?string
     {
         if ($useShortPrefix) {
             return $this->getField($this->prefix . $fieldName);

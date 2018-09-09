@@ -5,13 +5,13 @@ use DanielPfeil\ServiceProviderApacheShib\ServiceProvider;
 use PhpSpec\ObjectBehavior;
 
 //todo add checks for null
-class ServiceProviderSpec extends ObjectBehavior
+final class ServiceProviderSpec extends ObjectBehavior
 {
     private $specPrefix = "AJP_";
     private $specShibPrefix = "Shib-";
     private $vars = null;
 
-    public function it_construct():void
+    final public function it_construct(): void
     {
         $this->setEnvVariables();
 
@@ -19,14 +19,14 @@ class ServiceProviderSpec extends ObjectBehavior
         $this->shouldBeAnInstanceOf(\DanielPfeil\ServiceProviderAuthenticator\ServiceProvider::class);
     }
 
-    public function it_GetApplicationID():void
+    final public function it_GetApplicationID(): void
     {
         $this->setEnvVariables();
 
         $this->getApplicationID()->shouldBeEqualTo($this->vars["Application-ID"]);
     }
 
-    public function it_getApplicationID_none_existing():void
+    final public function it_getApplicationID_none_existing(): void
     {
         $this->setEnvVariables();
 
@@ -35,11 +35,12 @@ class ServiceProviderSpec extends ObjectBehavior
         $this->getApplicationID()->shouldBeNull();
     }
 
-    public function it_getApplicationID_nothing_is_set(){
+    final public function it_getApplicationID_nothing_is_set()
+    {
         $this->getApplicationID()->shouldBeNull();
     }
 
-    public function it_GetSessionId():void
+    final public function it_GetSessionId(): void
     {
         $this->setEnvVariables();
 
@@ -67,28 +68,28 @@ class ServiceProviderSpec extends ObjectBehavior
         $this->getAuthenticationMethod()->shouldBeEqualTo($this->vars["Authentication-Method"]);
     }
 
-    public function it_GetAuthenticationContextClass():void
+    final public function it_GetAuthenticationContextClass(): void
     {
         $this->setEnvVariables();
 
         $this->getAuthenticationContextClass()->shouldBeEqualTo($this->vars["AuthnContext-Class"]);
     }
 
-    public function it_GetSessionIndex():void
+    final public function it_GetSessionIndex(): void
     {
         $this->setEnvVariables();
 
         $this->getSessionIndex()->shouldBeEqualTo($this->vars["Session-Index"]);
     }
 
-    public function it_GetCookieName():void
+    final public function it_GetCookieName(): void
     {
         $this->setEnvVariables();
 
         $this->getCookieName()->shouldBeEqualTo($this->vars["Cookie-Name"]);
     }
 
-    public function it_GetPrefix():void
+    final public function it_GetPrefix(): void
     {
         $this->setEnvVariables();
 
@@ -96,7 +97,7 @@ class ServiceProviderSpec extends ObjectBehavior
         $this->getPrefix()->shouldBeEqualTo($this->specPrefix);
     }
 
-    public function it_isSessionExisting():void
+    final public function it_isSessionExisting(): void
     {
         $this->setEnvVariables();
 
@@ -104,21 +105,21 @@ class ServiceProviderSpec extends ObjectBehavior
         $this->isSessionExisting()->shouldBeEqualTo(true);
     }
 
-    public function it_getField():void
+    final public function it_getField(): void
     {
         $this->setEnvVariables();
 
         $this->getField("testKey")->shouldBeEqualTo("testValue");
     }
 
-    public function it_getShortPrefixedValue():void
+    final public function it_getShortPrefixedValue(): void
     {
         $this->setEnvVariables();
 
         $this->getPrefixedField("prefixedTestKey")->shouldBeEqualTo("prefixedTestValue");
     }
 
-    public function it_getFullPrefixedValue():void
+    final public function it_getFullPrefixedValue(): void
     {
         $this->setEnvVariables();
 
@@ -126,12 +127,12 @@ class ServiceProviderSpec extends ObjectBehavior
             ->shouldBeEqualTo("prefixedTestValue");
     }
 
-    private function getFullPrefix(string $string):string
+    final private function getFullPrefix(string $string): string
     {
         return $this->specPrefix . $this->specShibPrefix . $string;
     }
 
-    private function setEnvVariables():void
+    final private function setEnvVariables(): void
     {
         $this->beConstructedWith($this->specPrefix);
 
