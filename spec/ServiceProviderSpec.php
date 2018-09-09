@@ -47,7 +47,21 @@ final class ServiceProviderSpec extends ObjectBehavior
         $this->getSessionId()->shouldBeEqualTo($this->vars["Session-ID"]);
     }
 
-    public function it_GetIdentityProvider():void
+    final public function it_GetSessionId_none_existing(): void
+    {
+        $this->setEnvVariables();
+
+        unset($_SERVER[$this->getFullPrefix("Session-ID")]);
+
+        $this->getSessionId()->shouldBeNull();
+    }
+
+    final public function it_getSessionID_nothing_is_set()
+    {
+        $this->getSessionId()->shouldBeNull();
+    }
+
+    final public function it_GetIdentityProvider(): void
     {
         $this->setEnvVariables();
 

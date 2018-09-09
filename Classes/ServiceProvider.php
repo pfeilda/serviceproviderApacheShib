@@ -23,7 +23,10 @@ final class ServiceProvider implements \DanielPfeil\ServiceProviderAuthenticator
 
     final public function getSessionId(): ?string
     {
-        return $_SERVER[$this->getPrefix() . $this->shibPrefix . "Session-ID"];
+        if ($this->isExisting($this->getPrefix() . $this->shibPrefix . "Session-ID")) {
+            return $_SERVER[$this->getPrefix() . $this->shibPrefix . "Session-ID"];
+        }
+        return null;
     }
 
     final public function getIdentityProvider(): ?string
