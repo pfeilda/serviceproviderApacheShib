@@ -5,7 +5,7 @@ before_script:
   - git config --global url."https://gitlab+deploy-token-4:${ServiceAuthenticatorDeployToken}@git.api-studio.de/pfeilda/serviceproviderAuthenticator.git".insteadOf git@git.api-studio.de:pfeilda/serviceproviderAuthenticator.git
   - composer install -o
 
-test:
+Unit Tests:
   stage: build
   script:
     - vendor/bin/phpspec run --no-code-generation -n
