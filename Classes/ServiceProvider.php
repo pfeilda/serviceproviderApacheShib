@@ -13,9 +13,12 @@ class ServiceProvider implements \DanielPfeil\ServiceProviderAuthenticator\Servi
         $this->prefix = $prefix;
     }
 
-    final public function getApplicationID(): string
+    final public function getApplicationID(): ?string
     {
-        return $_SERVER[$this->getPrefix() . $this->shibPrefix . "Application-ID"];
+        if ($this->isExisting($this->getPrefix() . $this->shibPrefix . "Application-ID")) {
+            return $_SERVER[$this->getPrefix() . $this->shibPrefix . "Application-ID"];
+        }
+        return null;
     }
 
     final public function getSessionId(): string
@@ -56,7 +59,7 @@ class ServiceProvider implements \DanielPfeil\ServiceProviderAuthenticator\Servi
 
     public function isSessionExisting():bool
     {
-        if($this->getSessionIndex() != null){
+        if ($this->getSessionIndex() != null) {
             return true;
         }
         return false;
@@ -70,7 +73,7 @@ class ServiceProvider implements \DanielPfeil\ServiceProviderAuthenticator\Servi
 
     public function getPrefixedField(string $fieldName, bool $useShortPrefix = true):?string
     {
-        if($useShortPrefix){
+        if ($useShortPrefix) {
             return $this->getField($this->prefix . $fieldName);
         } else {
             return $this->getField($this->prefix . $this->shibPrefix . $fieldName);
@@ -82,4 +85,8 @@ class ServiceProvider implements \DanielPfeil\ServiceProviderAuthenticator\Servi
         return $this->prefix;
     }
 
+    final private function isExisting(string $testString):bool
+    {
+        return array_key_exists($testString, $_SERVER);
+    }
 }

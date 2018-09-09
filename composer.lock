@@ -12,7 +12,7 @@
             "source": {
                 "type": "git",
                 "url": "git@git.api-studio.de:pfeilda/serviceproviderAuthenticator.git",
-                "reference": "ed0405b116de9621f8aa9d46ae172f3ba1e81abb"
+                "reference": "18997018140f12d377be3ea5f2008f05062f8a26"
             },
             "require-dev": {
                 "phpspec/phpspec": "^4.0",
@@ -30,7 +30,7 @@
                 "SSO",
                 "authentication"
             ],
-            "time": "2018-09-08T22:52:48+00:00"
+            "time": "2018-09-08T23:36:07+00:00"
         }
     ],
     "packages-dev": [
