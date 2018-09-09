@@ -35,6 +35,10 @@ class ServiceProviderSpec extends ObjectBehavior
         $this->getApplicationID()->shouldBeNull();
     }
 
+    public function it_getApplicationID_nothing_is_set(){
+        $this->getApplicationID()->shouldBeNull();
+    }
+
     public function it_GetSessionId():void
     {
         $this->setEnvVariables();

@@ -80,7 +80,7 @@ class ServiceProvider implements \DanielPfeil\ServiceProviderAuthenticator\Servi
         }
     }
 
-    final public function getPrefix(): string
+    final public function getPrefix(): ?string
     {
         return $this->prefix;
     }
