@@ -9,10 +9,9 @@ extensions:
   LeanPHP\PhpSpec\CodeCoverage\CodeCoverageExtension:
     format: [
         html,
-        clover
+        text
       ]
     whitelist:
     - Classes
     output:
-          clover: coverage/clover.xml
           html: coverage/html
