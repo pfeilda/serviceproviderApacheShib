@@ -3,12 +3,12 @@
 namespace DanielPfeil\ServiceProviderApacheShib;
 
 //todo maybe checks for if  the getter gets valid informations
-class ServiceProvider
+class ServiceProvider implements \DanielPfeil\ServiceProviderAuthenticator\ServiceProvider
 {
     private $prefix;
     private $shibPrefix = "Shib-";
 
-    public function __construct(string $prefix)
+    public function __construct(string $prefix = null)
     {
         $this->prefix = $prefix;
     }
@@ -54,19 +54,32 @@ class ServiceProvider
         return $_SERVER[$this->getPrefix() . $this->shibPrefix . "Cookie-Name"];
     }
 
+    public function isSessionExisting():bool
+    {
+        if($this->getSessionIndex() != null){
+            return true;
+        }
+        return false;
+    }
+
+    //Be carefull access on all $_SERVER fields
+    public function getField(string $fieldName):?string
+    {
+        return $_SERVER[$fieldName];
+    }
+
+    public function getPrefixedField(string $fieldName, bool $useShortPrefix = true):?string
+    {
+        if($useShortPrefix){
+            return $this->getField($this->prefix . $fieldName);
+        } else {
+            return $this->getField($this->prefix . $this->shibPrefix . $fieldName);
+        }
+    }
+
     final public function getPrefix(): string
     {
         return $this->prefix;
-    }
-
-    public function isSessionExisting():bool
-    {
-        // TODO: write logic here
-    }
-
-    public function getField($argument1)
-    {
-        // TODO: write logic here
     }
 
 }
