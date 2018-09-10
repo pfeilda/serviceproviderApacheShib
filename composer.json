@@ -19,7 +19,8 @@
   ],
   "require": {
     "php":"^7.1",
-    "daniel-pfeil/serviceproviderAuthenticator":"dev-develop"
+    "daniel-pfeil/serviceproviderAuthenticator":"dev-develop",
+    "minimalcode/php-java-optional": "v1.0.8RC"
   },
   "require-dev": {
     "squizlabs/php_codesniffer": "*",
