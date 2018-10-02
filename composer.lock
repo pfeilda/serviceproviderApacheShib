@@ -4,21 +4,24 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "c7d2d177327b2bed850a6c954c6283a3",
+    "content-hash": "59a8a5b03aa3c0c275db80b9d11e2478",
     "packages": [
         {
             "name": "daniel-pfeil/serviceprovider-authenticator",
-            "version": "1.0.0",
+            "version": "1.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/pfeilda/serviceproviderAuthenticator.git",
-                "reference": "78438b65b5ca038e7815f098673cd6e49a4b7056"
+                "reference": "c45cd5610d2befbe0b97361e1cf807cb4fd9f20c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pfeilda/serviceproviderAuthenticator/zipball/78438b65b5ca038e7815f098673cd6e49a4b7056",
-                "reference": "78438b65b5ca038e7815f098673cd6e49a4b7056",
+                "url": "https://api.github.com/repos/pfeilda/serviceproviderAuthenticator/zipball/c45cd5610d2befbe0b97361e1cf807cb4fd9f20c",
+                "reference": "c45cd5610d2befbe0b97361e1cf807cb4fd9f20c",
                 "shasum": ""
+            },
+            "require": {
+                "php": "^7.1"
             },
             "require-dev": {
                 "squizlabs/php_codesniffer": "*"
@@ -30,13 +33,16 @@
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-3.0-only"
+            ],
             "description": "These package should give you a base frame for developing new authenticator that should be compatible.",
             "keywords": [
                 "Authentication",
                 "SSO",
                 "saml"
             ],
-            "time": "2018-09-16T22:59:04+00:00"
+            "time": "2018-10-02T10:12:08+00:00"
         }
     ],
     "packages-dev": [

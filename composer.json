@@ -11,10 +11,10 @@
     "shibboleth"
   ],
   "license":"GPL-3.0-only",
-  "version": "1.2.0",
+  "version": "1.3.0",
   "require": {
     "php":"^7.1",
-    "daniel-pfeil/serviceprovider-authenticator":"1.0.0"
+    "daniel-pfeil/serviceprovider-authenticator":"^1.2.0"
   },
   "require-dev": {
     "squizlabs/php_codesniffer": "*",
