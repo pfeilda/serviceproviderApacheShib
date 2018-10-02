@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "38ce328e5241181dd897a7e541e02004",
+    "content-hash": "c7d2d177327b2bed850a6c954c6283a3",
     "packages": [
         {
             "name": "daniel-pfeil/serviceprovider-authenticator",
