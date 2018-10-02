@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "b374a20c9eda69cdada03ae7551704b8",
+    "content-hash": "38ce328e5241181dd897a7e541e02004",
     "packages": [
         {
             "name": "daniel-pfeil/serviceprovider-authenticator",
@@ -37,53 +37,6 @@
                 "saml"
             ],
             "time": "2018-09-16T22:59:04+00:00"
-        },
-        {
-            "name": "minimalcode/php-java-optional",
-            "version": "v1.0.8RC",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/minimalcode-org/php-java-optional.git",
-                "reference": "b10346ef34d459210bbb3dc0cca7c997a75d977c"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/minimalcode-org/php-java-optional/zipball/b10346ef34d459210bbb3dc0cca7c997a75d977c",
-                "reference": "b10346ef34d459210bbb3dc0cca7c997a75d977c",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.5"
-            },
-            "require-dev": {
-                "phpunit/phpunit": "4.8.*"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "Minimalcode\\Optional\\": "src/Minimalcode/Optional/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "Apache-2.0"
-            ],
-            "authors": [
-                {
-                    "name": "Fabio Piro",
-                    "email": "pirofabio@gmail.com"
-                }
-            ],
-            "description": "Java9 Optional implementation for PHP",
-            "homepage": "http://minimalcode.org",
-            "keywords": [
-                "generic",
-                "java",
-                "option",
-                "optional",
-                "php"
-            ],
-            "time": "2017-06-23T22:00:09+00:00"
         }
     ],
     "packages-dev": [
@@ -1676,9 +1629,7 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": {
-        "minimalcode/php-java-optional": 5
-    },
+    "stability-flags": [],
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
