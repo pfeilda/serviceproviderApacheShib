@@ -7,6 +7,15 @@ It is described [here](https://semver.org/).
 
 - configure variable (where the information is found, currently $_SERVER)
 
+## Release 1.3.0 - 2018-10-02
+
+### Added
++ Factory 
++ Tests for factory
+
+### Modified
++ Updated serviceauthenticator dependencies
+
 ## Release 1.2.0 - 2018-10-02
 
 The optional is removed because everyone should be able to use it own optional implementation.
