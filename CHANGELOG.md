@@ -7,6 +7,11 @@ It is described [here](https://semver.org/).
 
 - configure variable (where the information is found, currently $_SERVER)
 
+## Release 1.3.1 - 2019-04-2019
+
++ updated dependency (daniel-pfeil/serviceproviderAuthenticator)
++ made factory final
+
 ## Release 1.3.0 - 2018-10-02
 
 ### Added

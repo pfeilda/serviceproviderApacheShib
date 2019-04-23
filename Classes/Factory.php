@@ -4,7 +4,7 @@ namespace DanielPfeil\ServiceProviderApacheShib;
 
 use \DanielPfeil\ServiceProviderAuthenticator\ServiceProvider as ServiceProviderInterface;
 
-class Factory implements \DanielPfeil\ServiceProviderAuthenticator\Factory
+final class Factory implements \DanielPfeil\ServiceProviderAuthenticator\Factory
 {
     private static $instance = null;
 
