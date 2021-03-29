@@ -11,9 +11,9 @@
     "shibboleth"
   ],
   "license":"GPL-3.0-only",
-  "version": "1.3.1",
+  "version": "1.3.2",
   "require": {
-    "php":"^7.1",
+    "php":">7.1",
     "daniel-pfeil/serviceprovider-authenticator":"^1.2"
   },
   "require-dev": {
